@@ -11,4 +11,12 @@
     <string name="fiveString">5</string>
     <string name="sixString">6</string>
     <string name="stringMultiply">*</string>
+    <string name="oneString">1</string>
+    <string name="twoString">2</string>
+    <string name="threeString">3</string>
+    <string name="addString">+</string>
+    <string name="decimalString">.</string>
+    <string name="zeroString">0</string>
+    <string name="equalString">=</string>
+    <string name="subtractString">-</string>
 </resources>

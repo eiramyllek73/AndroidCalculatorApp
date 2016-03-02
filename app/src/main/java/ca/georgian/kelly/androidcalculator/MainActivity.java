@@ -3,7 +3,7 @@ NAME:       Kelly McAlpine - 200269425
 COURSE:     COMP3025
 PROJECT:    Basic calculator for Android devices 2.3.3 and up
 DUE DATE:   March 11, 2016
-VERSION:    1.0
+VERSION:    1.1:  Added all buttons and set onClick listeners for number buttons
  */
 
 package ca.georgian.kelly.androidcalculator;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
     private Button _buttonDec;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -55,27 +56,129 @@ public class MainActivity extends AppCompatActivity
         //Create a reference to each control
         this._answerDisplay = (TextView) findViewById(R.id.answerDisplay);
         this._buttonClear = (Button) findViewById(R.id.buttonClear);
+
         this._buttonSeven = (Button) findViewById(R.id.buttonSeven);
         this._buttonEight = (Button) findViewById(R.id.buttonEight);
         this._buttonNine = (Button) findViewById(R.id.buttonNine);
-        this._buttonFour = (Button) findViewById(R.id.button4);
-        this._buttonFive = (Button) findViewById(R.id.button);
-        this._buttonNine = (Button) findViewById(R.id.buttonNine);
-        this._buttonNine = (Button) findViewById(R.id.buttonNine);
+        this._buttonDivide = (Button) findViewById(R.id.buttonDivide);
 
+        this._buttonFour = (Button) findViewById(R.id.buttonFour);
+        this._buttonFive = (Button) findViewById(R.id.buttonFive);
+        this._buttonSix = (Button) findViewById(R.id.buttonSix);
+        this._buttonMultiply = (Button) findViewById(R.id.buttonMultiply);
 
+        this._buttonOne = (Button) findViewById(R.id.buttonOne);
+        this._buttonTwo = (Button) findViewById(R.id.buttonTwo);
+        this._buttonThree = (Button) findViewById(R.id.buttonThree);
+        this._buttonAdd = (Button) findViewById(R.id.buttonAdd);
 
+        this._buttonDec = (Button) findViewById(R.id.buttonDec);
+        this._buttonZero = (Button) findViewById(R.id.buttonZero);
+        this._buttonEquals = (Button) findViewById(R.id.buttonEquals);
+        this._buttonSubtract = (Button) findViewById(R.id.buttonSubtract);
 
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //set click listeners for all number buttons
+        this._buttonOne.setOnClickListener( new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("1");
             }
         });
+
+        this._buttonTwo.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("2");
+            }
+        });
+
+        this._buttonThree.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("3");
+            }
+        });
+
+        this._buttonFour.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("4");
+            }
+        });
+
+        this._buttonFive.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("5");
+            }
+        });
+
+        this._buttonSix.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                ///set the text from the face of the button
+                _answerDisplay.setText("6");
+            }
+        });
+
+        this._buttonSeven.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("7");
+            }
+        });
+
+        this._buttonEight.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("8");
+            }
+        });
+
+        this._buttonNine.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("9");
+            }
+        });
+
+        this._buttonZero.setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //set the text from the face of the button
+                _answerDisplay.setText("0");
+            }
+        });
+
+
     }
 
 } //end of MainActivity
