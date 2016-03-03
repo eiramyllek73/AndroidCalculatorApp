@@ -5,4 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="answerDisplayHeight">40dp</dimen>
     <dimen name="buttonWidth">0dp</dimen>
+    <dimen name="lrgButtonPadding">1dp</dimen>
+    <dimen name="smallButtonPadding">2dp</dimen>
+    <dimen name="mediumButtonPadding">2dp</dimen>
 </resources>

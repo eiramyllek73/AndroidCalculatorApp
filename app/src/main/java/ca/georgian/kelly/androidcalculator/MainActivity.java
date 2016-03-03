@@ -3,7 +3,7 @@ NAME:       Kelly McAlpine - 200269425
 COURSE:     COMP3025
 PROJECT:    Basic calculator for Android devices 2.3.3 and up
 DUE DATE:   March 11, 2016
-VERSION:    1.2:  Finished onClick listeners for operators and programmed calculations
+VERSION:    2.0:  Beginning of layout adjustments
  */
 
 package ca.georgian.kelly.androidcalculator;
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                _answerDisplay.setText("");
+                _answerDisplay.setText("0");
             }
         });
 
