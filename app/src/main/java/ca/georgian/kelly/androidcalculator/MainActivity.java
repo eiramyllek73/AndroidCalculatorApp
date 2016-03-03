@@ -3,7 +3,7 @@ NAME:       Kelly McAlpine - 200269425
 COURSE:     COMP3025
 PROJECT:    Basic calculator for Android devices 2.3.3 and up
 DUE DATE:   March 11, 2016
-VERSION:    1.1:  Added all buttons and set onClick listeners for number buttons
+VERSION:    1.2:  Finished onClick listeners for operators and programmed calculations
  */
 
 package ca.georgian.kelly.androidcalculator;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity
     //PRIVATE INSTANCE VARIABLES
     private TextView _answerDisplay;
     private Button _buttonClear;
-    //number keys
+    //Number Keys
     private Button _buttonOne;
     private Button _buttonTwo;
     private Button _buttonThree;
@@ -35,15 +35,16 @@ public class MainActivity extends AppCompatActivity
     private Button _buttonEight;
     private Button _buttonNine;
     private Button _buttonZero;
-    //operators
+    //Operators
     private Button _buttonDivide;
     private Button _buttonMultiply;
     private Button _buttonAdd;
     private Button _buttonSubtract;
     private Button _buttonEquals;
     private Button _buttonDec;
-
-
+    //Calculation Variables
+    private boolean _mAddition, _mSubtraction, _mDivision, _mMultiplication;
+    private float _mFirstInputNumber, _mNextInputNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -77,14 +78,14 @@ public class MainActivity extends AppCompatActivity
         this._buttonEquals = (Button) findViewById(R.id.buttonEquals);
         this._buttonSubtract = (Button) findViewById(R.id.buttonSubtract);
 
-        //set click listeners for all number buttons
+        //set click listeners for all number buttons, clear button and decimal button
         this._buttonOne.setOnClickListener( new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("1");
+                _answerDisplay.setText(_answerDisplay.getText() + "1");
             }
         });
 
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("2");
+                _answerDisplay.setText(_answerDisplay.getText() + "2");
             }
         });
 
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("3");
+                _answerDisplay.setText(_answerDisplay.getText() + "3");
             }
         });
 
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("4");
+                _answerDisplay.setText(_answerDisplay.getText() + "4");
             }
         });
 
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("5");
+                _answerDisplay.setText(_answerDisplay.getText() + "5");
             }
         });
 
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 ///set the text from the face of the button
-                _answerDisplay.setText("6");
+                _answerDisplay.setText(_answerDisplay.getText() + "6");
             }
         });
 
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("7");
+                _answerDisplay.setText(_answerDisplay.getText() + "7");
             }
         });
 
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("8");
+                _answerDisplay.setText(_answerDisplay.getText() + "8");
             }
         });
 
@@ -164,7 +165,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("9");
+                _answerDisplay.setText(_answerDisplay.getText() + "9");
             }
         });
 
@@ -174,10 +175,134 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 //set the text from the face of the button
-                _answerDisplay.setText("0");
+                _answerDisplay.setText(_answerDisplay.getText() + "0");
             }
         });
 
+        this._buttonClear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                _answerDisplay.setText("");
+            }
+        });
+
+        this._buttonDec.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                _answerDisplay.setText(_answerDisplay.getText() + ".");
+            }
+        });
+
+        //Set onClick Listeners for Operator buttons
+        _buttonDivide.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (_answerDisplay == null)
+                {
+                    _answerDisplay.setText("");
+                }
+                else
+                {
+                    _mFirstInputNumber = Float.parseFloat(_answerDisplay.getText() + "");
+                    _mDivision = true;
+                    _answerDisplay.setText(null);
+                }
+            }
+        });
+
+        _buttonMultiply.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (_answerDisplay == null)
+                {
+                    _answerDisplay.setText("");
+                }
+                else
+                {
+                    _mFirstInputNumber = Float.parseFloat(_answerDisplay.getText() + "");
+                    _mMultiplication = true;
+                    _answerDisplay.setText(null);
+                }
+            }
+        });
+
+        _buttonAdd.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (_answerDisplay == null)
+                {
+                    _answerDisplay.setText("");
+                }
+                else
+                {
+                    _mFirstInputNumber = Float.parseFloat(_answerDisplay.getText() + "");
+                    _mAddition = true;
+                    _answerDisplay.setText(null);
+                }
+            }
+        });
+
+        _buttonSubtract.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (_answerDisplay == null)
+                {
+                    _answerDisplay.setText("");
+                }
+                else
+                {
+                    _mFirstInputNumber = Float.parseFloat(_answerDisplay.getText() + "");
+                    _mSubtraction = true;
+                    _answerDisplay.setText(null);
+                }
+            }
+        });
+
+        //Set up onClick for totalling calculations
+        _buttonEquals.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                _mNextInputNumber = Float.parseFloat(_answerDisplay.getText() + "");
+
+                if (_mDivision == true)
+                {
+                    _answerDisplay.setText(_mFirstInputNumber / _mNextInputNumber + "");
+                    _mDivision=false;
+                }
+
+                if (_mMultiplication == true)
+                {
+                    _answerDisplay.setText(_mFirstInputNumber * _mNextInputNumber + "");
+                    _mMultiplication=false;
+                }
+
+                if (_mAddition == true)
+                {
+                    _answerDisplay.setText(_mFirstInputNumber + _mNextInputNumber + "");
+                    _mAddition=false;
+                }
+
+                if (_mSubtraction == true)
+                {
+                    _answerDisplay.setText(_mFirstInputNumber - _mNextInputNumber + "");
+                    _mSubtraction=false;
+                }
+            }
+        });
 
     }
 
