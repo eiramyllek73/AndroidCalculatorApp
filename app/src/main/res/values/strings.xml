@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AndroidCalculator</string>
+    <string name="title">Calculate Me!</string>
     <string name="action_settings">Settings</string>
     <string name="defaultAnswerDisplay">0</string>
     <string name="clearString">CLEAR</string>

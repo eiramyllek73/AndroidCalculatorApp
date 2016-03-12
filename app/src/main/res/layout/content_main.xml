@@ -13,7 +13,7 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/answerDisplay"
         android:textSize="@dimen/answerDisplayHeight"
@@ -58,7 +58,7 @@
         android:text="@string/sevenString"
         android:id="@+id/buttonSeven"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:layout_alignStart="@id/answerDisplay"
         android:gravity="center"
         android:layout_alignParentTop="false"
@@ -67,7 +67,8 @@
         android:textColor="#432a52"
         android:textStyle="bold"
         android:padding="@dimen/smallButtonPadding"
-        android:layout_below="@+id/buttonClear" />
+        android:layout_below="@+id/buttonClear"
+        android:layout_toLeftOf="@+id/buttonEight" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -75,14 +76,14 @@
         android:layout_height="wrap_content"
         android:text="@string/eightString"
         android:id="@+id/buttonEight"
-        android:layout_toEndOf="@+id/buttonSeven"
         android:layout_alignParentTop="false"
         android:layout_alignParentBottom="false"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
         android:padding="@dimen/smallButtonPadding"
-        android:layout_below="@+id/buttonClear" />
+        android:layout_below="@+id/buttonClear"
+        android:layout_toLeftOf="@+id/buttonNine" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -90,14 +91,14 @@
         android:layout_height="wrap_content"
         android:text="@string/nineString"
         android:id="@+id/buttonNine"
-        android:layout_toRightOf="@+id/buttonEight"
         android:layout_alignParentTop="false"
         android:layout_alignParentBottom="false"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
         android:padding="@dimen/smallButtonPadding"
-        android:layout_below="@+id/buttonClear" />
+        android:layout_below="@+id/buttonClear"
+        android:layout_toLeftOf="@+id/buttonDivide" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -113,9 +114,7 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:padding="@dimen/mediumButtonPadding"
-        android:layout_toRightOf="@+id/buttonNine"
         android:layout_alignEnd="@id/answerDisplay"
-        android:layout_toEndOf="@id/buttonNine"
         android:layout_below="@+id/buttonClear" />
 
     <Button
@@ -125,46 +124,41 @@
         android:text="@string/fourString"
         android:id="@+id/buttonFour"
         android:gravity="center"
-        android:layout_below="@+id/buttonSeven"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/buttonFive"
-        android:layout_toStartOf="@id/buttonFive"
+        android:layout_alignParentStart="false"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_below="@+id/buttonSeven"
+        android:layout_alignStart="@id/answerDisplay"
+        android:layout_toLeftOf="@+id/buttonFive" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fiveString"
         android:id="@+id/buttonFive"
-        android:layout_below="@+id/buttonSeven"
-        android:layout_toLeftOf="@+id/buttonNine"
-        android:layout_alignLeft="@+id/buttonEight"
-        android:layout_alignStart="@+id/buttonEight"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_below="@+id/buttonEight"
+        android:layout_toLeftOf="@+id/buttonSix" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sixString"
         android:id="@+id/buttonSix"
         android:layout_below="@+id/buttonNine"
-        android:layout_alignLeft="@+id/buttonNine"
-        android:layout_alignStart="@+id/buttonNine"
-        android:layout_toLeftOf="@+id/buttonDivide"
-        android:layout_toStartOf="@+id/buttonDivide"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_toLeftOf="@+id/buttonMultiply" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -173,8 +167,6 @@
         android:text="@string/stringMultiply"
         android:id="@+id/buttonMultiply"
         android:layout_below="@+id/buttonDivide"
-        android:layout_toRightOf="@+id/buttonSix"
-        android:layout_toEndOf="@+id/buttonSix"
         android:background="#87619f"
         android:textColor="#ffffff"
         android:textStyle="bold"
@@ -193,13 +185,13 @@
         android:gravity="center"
         android:layout_below="@+id/buttonFour"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/buttonTwo"
-        android:layout_toStartOf="@id/buttonTwo"
+        android:layout_alignParentStart="false"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_alignStart="@id/answerDisplay"
+        android:layout_toLeftOf="@+id/buttonTwo" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -209,12 +201,11 @@
         android:id="@+id/buttonTwo"
         android:gravity="center"
         android:layout_below="@+id/buttonFive"
-        android:layout_toRightOf="@+id/buttonFour"
-        android:layout_toEndOf="@+id/buttonFour"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_toLeftOf="@+id/buttonThree" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -222,13 +213,12 @@
         android:layout_height="wrap_content"
         android:text="@string/threeString"
         android:id="@+id/buttonThree"
-        android:layout_below="@+id/buttonSix"
-        android:layout_toRightOf="@+id/buttonTwo"
-        android:layout_toEndOf="@+id/buttonTwo"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_below="@+id/buttonSix"
+        android:layout_toLeftOf="@+id/buttonAdd" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -237,8 +227,6 @@
         android:text="@string/addString"
         android:id="@+id/buttonAdd"
         android:layout_below="@+id/buttonMultiply"
-        android:layout_toRightOf="@+id/buttonThree"
-        android:layout_toEndOf="@id/buttonThree"
         android:background="#87619f"
         android:textColor="#ffffff"
         android:textStyle="bold"
@@ -259,7 +247,9 @@
         android:background="#959595"
         android:textStyle="bold"
         android:padding="@dimen/smallButtonPadding"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false"
+        android:layout_alignStart="@id/answerDisplay"
+        android:layout_toLeftOf="@+id/buttonZero" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -268,12 +258,11 @@
         android:text="@string/zeroString"
         android:id="@+id/buttonZero"
         android:layout_below="@+id/buttonTwo"
-        android:layout_toRightOf="@+id/buttonDec"
-        android:layout_toEndOf="@+id/buttonDec"
         android:background="#959595"
         android:textColor="#432a52"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_toLeftOf="@+id/buttonEquals" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -282,12 +271,11 @@
         android:text="@string/equalString"
         android:id="@+id/buttonEquals"
         android:layout_below="@+id/buttonThree"
-        android:layout_toRightOf="@+id/buttonTwo"
-        android:layout_toEndOf="@+id/buttonTwo"
         android:textColor="#432a52"
         android:background="#959595"
         android:textStyle="bold"
-        android:padding="@dimen/smallButtonPadding" />
+        android:padding="@dimen/smallButtonPadding"
+        android:layout_toLeftOf="@+id/buttonSubtract" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -296,8 +284,6 @@
         android:text="@string/subtractString"
         android:id="@+id/buttonSubtract"
         android:layout_below="@+id/buttonAdd"
-        android:layout_toRightOf="@+id/buttonEquals"
-        android:layout_toEndOf="@id/buttonEquals"
         android:background="#87619f"
         android:textColor="#ffffff"
         android:textStyle="bold"

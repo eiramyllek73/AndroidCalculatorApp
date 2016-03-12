@@ -3,7 +3,7 @@ NAME:       Kelly McAlpine - 200269425
 COURSE:     COMP3025
 PROJECT:    Basic calculator for Android devices 2.3.3 and up
 DUE DATE:   March 11, 2016
-VERSION:    2.0:  Beginning of layout adjustments
+VERSION:    2.1:  Finalizing of layout adjustments
  */
 
 package ca.georgian.kelly.androidcalculator;
@@ -46,6 +46,23 @@ public class MainActivity extends AppCompatActivity
     private boolean _mAddition, _mSubtraction, _mDivision, _mMultiplication;
     private float _mFirstInputNumber, _mNextInputNumber;
 
+    /*This method will handle the following:
+    if the screen is showing a zero, this means that the number entered will be the
+    first number for the calculation - if the screen shows anything else, this means
+    that the number entered will be recognized as the 'next' number in the calculation
+    */
+    public void dropZero (String number)
+    {
+        if (_answerDisplay.getText().equals("0"))
+        {
+            //set the text from the face of the button
+            _answerDisplay.setText(number);
+        }
+        else
+        {
+            _answerDisplay.setText(_answerDisplay.getText() + number);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -84,8 +101,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "1");
+                dropZero("1");
             }
         });
 
@@ -94,8 +110,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "2");
+                dropZero("2");
             }
         });
 
@@ -104,8 +119,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "3");
+                dropZero("3");
             }
         });
 
@@ -114,8 +128,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "4");
+                dropZero("4");
             }
         });
 
@@ -124,8 +137,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "5");
+                dropZero("5");
             }
         });
 
@@ -134,8 +146,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                ///set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "6");
+                dropZero("6");
             }
         });
 
@@ -144,8 +155,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "7");
+                dropZero("7");
             }
         });
 
@@ -154,8 +164,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "8");
+                dropZero("8");
             }
         });
 
@@ -164,8 +173,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "9");
+                dropZero("9");
             }
         });
 
@@ -174,11 +182,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //set the text from the face of the button
-                _answerDisplay.setText(_answerDisplay.getText() + "0");
+                dropZero("0");
             }
         });
 
+        //This method clears any calculation and returns the screen to show a "0"
         this._buttonClear.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -188,6 +196,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        //This method adds a decimal to the calculation when the decimal button is pressed
         this._buttonDec.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -197,7 +206,11 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        //Set onClick Listeners for Operator buttons
+        /*  This method handles the following:
+            1. Set onClick Listeners for Operator buttons
+            2. Transfer number text into numbers
+            3. Define calculations
+         */
         _buttonDivide.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -303,7 +316,5 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-
     }
-
 } //end of MainActivity
